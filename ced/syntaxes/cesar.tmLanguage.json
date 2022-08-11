@@ -1,0 +1,156 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Cesar",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#directives"
+		},
+		{
+			"include": "#Registers"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#poundNumbers"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#labels"
+		},
+		{
+			"include": "#poundLabels"
+		},
+		{
+			"include": "#postIncrement"
+		},
+		{
+			"include": "#preDecrement"
+		},
+		{
+			"include": "#parens"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.cesar",
+					"match": "(?i)\\b(ccc|scc|sob|mov|add|sub|jmp|br|bne|bpl|bvc|bvs|bcc|bcs|bge|blt|bgt|ble|bhi|bls|jsr|rts|rti|nop|hlt|clr|not|inc|dec|neg|tst|ror|rol|asr|asl|adc|sbc|cmp|and|or)\\b"
+				}
+			]
+		},
+		"parens": {
+			"patterns": [
+				{
+					"name": "",
+					"match": "\\(|\\)"
+				}
+			]
+		},
+		"postIncrement": {
+			"patterns": [
+				{
+					"name":  "constant.character.escape.cesar",
+					"match": "(?<=\\))\\+(?=\\)?)"
+				}
+			]
+		},
+		"preDecrement":
+		{
+			"patterns": [
+				{
+					"name":  "constant.character.escape.cesar",
+					"match": "(?<=\\(?)\\-(?=\\()"
+				}
+			]
+		},
+		"directives": {
+			"patterns": [
+				{
+					"name": "constant.language.other.cesar",
+					"match": "(?i)\\b(db|dw|equ|dab|daw)\\b"
+				}
+			]
+		},
+		"Registers": {
+			"patterns": [
+				{
+					"name": "entity.name.type.class.cesar",
+					"match": "(?i)\\b(r[0-7])\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": ";",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.cesar"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line.number-sign.cesar"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.cesar",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cesar",
+					"match": "\\\\."
+				}
+			]
+		},
+		"poundNumbers": {
+			"patterns": [
+				{
+					"name": "variable.other.constant.cesar",
+					"match": "(?i)\\#\\b(H[0-9a-fA-F]+|0x[0-9a-fA-F]+|[0-9]+)\\b"
+				}
+			]
+		},
+		"poundLabels": {
+			"patterns": [
+				{
+					"name": "variable.other.constant.cesar",
+					"match": "\\#[a-zA-Z_][a-zA-Z0-9_]*"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"begin": "(?i)\\b(H[0-9a-fA-F]+|0x[0-9a-fA-F]+|[0-9]+)\\b",
+					"end": "\\d*|\\n",
+					"beginCaptures": {
+						"0": {
+							"name": "constant.numeric.cesar"
+						}
+					}
+				}
+			]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "entity.name.labels.cesar",
+					"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b:"
+				}
+			]
+		}
+	},
+	"scopeName": "source.ced"
+}

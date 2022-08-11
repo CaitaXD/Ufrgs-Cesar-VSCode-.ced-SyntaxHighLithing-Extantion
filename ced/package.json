@@ -1,0 +1,25 @@
+{
+  "name": "ced",
+  "displayName": "CED",
+  "description": "Cesar Assembly UFRGS Arq",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cesar",
+      "aliases": ["Cesar", "cesar"],
+      "extensions": [".ced"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cesar",
+      "scopeName": "source.ced",
+      "path": "./syntaxes/cesar.tmLanguage.json"
+    }]
+  }
+}
