@@ -77,7 +77,7 @@
 			"patterns": [
 				{
 					"name": "constant.language.other.cesar",
-					"match": "(?i)\\b(db|dw|equ|dab|daw)\\b"
+					"match": "(?i)\\b(db|dw|equ|dab|daw|org)\\b"
 				}
 			]
 		},
@@ -105,12 +105,12 @@
 		},
 		"strings": {
 			"name": "string.quoted.double.cesar",
-			"begin": "\"",
-			"end": "\"",
+			"begin": "'",
+			"end": "'",
 			"patterns": [
 				{
 					"name": "constant.character.escape.cesar",
-					"match": "\\\\."
+					"match": "'.*'"
 				}
 			]
 		},
